@@ -72,4 +72,17 @@ describe("date converter", () => {
         expect(testDeathSearcher.formatData(data).length).toEqual(113);
       });
   });
+  it("performs the above task and finds Landulf I", () => {
+    const testDate = "2014-04-10";
+    let convertedDate = testDeathSearcher.convertDate(testDate);
+    return testDeathSearcher
+      .searchAPI(convertedDate, "wikitext")
+      .then((data) => {
+        let list = testDeathSearcher.formatData(data);
+        expect(testDeathSearcher.formatEntry(list[1])).toEqual([
+          "Landulf I of Benevento",
+          "prince of Benevento and Capua",
+        ]);
+      });
+  });
 });

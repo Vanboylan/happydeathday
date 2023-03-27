@@ -52,6 +52,21 @@ class deathSearcher {
     const filteredList = splitList.filter(this.isPerson);
     return filteredList;
   };
+  formatEntry = (data) => {
+    let filteredName = this.filterName(data);
+    let name = this.nameCheck(filteredName);
+    let info = this.createInfo(data).trim();
+    return [name, info];
+  };
+  nameCheck = (name) => {
+    return name.includes("|") ? name.split("|")[0] : name;
+  };
+  createInfo = (data) => {
+    return data.includes("]], ") ? data.split("]], ")[1] : "";
+  };
+  filterName = (data) => {
+    return data.split("[[")[2].split("]]")[0];
+  };
 }
 
 module.exports = deathSearcher;
