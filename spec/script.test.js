@@ -57,8 +57,19 @@ describe("date converter", () => {
   it("accepts 2014-4-10, converts to April_10 and searches via the wikimedia api", () => {
     const testDate = "2014-04-10";
     let convertedDate = testDeathSearcher.convertDate(testDate);
-    return testDeathSearcher.searchAPI(convertedDate).then((data) => {
-      expect(data).toEqual({ pageid: 2564, title: "April 10" });
-    });
+    return testDeathSearcher
+      .searchAPI(convertedDate, "wikitext")
+      .then((data) => {
+        expect(data.pageid).toEqual(2564);
+      });
+  });
+  it("performs the above task and converts the response to a list of deaths", () => {
+    const testDate = "2014-04-10";
+    let convertedDate = testDeathSearcher.convertDate(testDate);
+    return testDeathSearcher
+      .searchAPI(convertedDate, "wikitext")
+      .then((data) => {
+        expect(testDeathSearcher.formatData(data)).toEqual("");
+      });
   });
 });

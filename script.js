@@ -29,8 +29,8 @@ class deathSearcher {
       return false;
     }
   };
-  async searchAPI(parameter) {
-    const url = `https://en.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=${parameter}&prop=html&formatversion=2`;
+  async searchAPI(parameter, format) {
+    const url = `https://en.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=${parameter}&prop=${format}&formatversion=2`;
     const response = await fetch(url);
     const data = await response.json();
     const parsedData = await data.parse;
