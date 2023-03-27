@@ -40,4 +40,9 @@ describe("date converter", () => {
     testDeathSearcher.convertDate(testDate);
     expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
   });
+  it("rejects bad format input", () => {
+    const testDate = "ag-bo-2022";
+    testDeathSearcher.convertDate(testDate);
+    expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
+  });
 });
