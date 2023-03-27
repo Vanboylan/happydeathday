@@ -45,4 +45,9 @@ describe("date converter", () => {
     testDeathSearcher.convertDate(testDate);
     expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
   });
+  it("accepts 2019-01-03", () => {
+    const testDate = "2019-01-03";
+    testDeathSearcher.convertDate(testDate);
+    expect(consoleSpy).toHaveBeenCalledWith("Acceptable input: 2019-01-03");
+  });
 });
