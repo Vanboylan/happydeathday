@@ -69,7 +69,7 @@ describe("date converter", () => {
     return testDeathSearcher
       .searchAPI(convertedDate, "wikitext")
       .then((data) => {
-        expect(testDeathSearcher.formatData(data)).toEqual("");
+        expect(testDeathSearcher.formatData(data).length).toEqual(113);
       });
   });
 });

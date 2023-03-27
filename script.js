@@ -18,8 +18,11 @@ class deathSearcher {
       let dateArray = date.split("-");
       if (
         dateArray[0].length === 4 &&
+        ~~dateArray[0] == dateArray[0] &&
         dateArray[1].length === 2 &&
-        dateArray[2].length === 2
+        ~~dateArray[1] == dateArray[1] &&
+        dateArray[2].length === 2 &&
+        ~~dateArray[2] == dateArray[2]
       ) {
         return true;
       } else {
@@ -36,6 +39,19 @@ class deathSearcher {
     const parsedData = await data.parse;
     return parsedData;
   }
+
+  isPerson = (element) => {
+    return element.includes("&ndash;");
+  };
+
+  formatData = (data) => {
+    const splitList = data.wikitext
+      .split("==Deaths==")[1]
+      .split("<!--")[0]
+      .split("*");
+    const filteredList = splitList.filter(this.isPerson);
+    return filteredList;
+  };
 }
 
 module.exports = deathSearcher;
