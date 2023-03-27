@@ -2,6 +2,14 @@ class deathSearcher {
   convertDate = (date) => {
     if (this.dateCheck(date) === true) {
       console.log(`Acceptable input: ${date}`);
+      let dateArray = date.split("-");
+      const searchDate = new Date();
+      searchDate.setMonth(~~dateArray[1] - 1);
+      let month = searchDate.toLocaleString("en-US", { month: "long" });
+      let day = dateArray[2];
+      let convertedDate = `${month}_${day}`;
+      console.log(convertedDate);
+      return convertedDate;
     } else {
       console.log("Error - incorrect input");
     }
