@@ -23,15 +23,20 @@ describe("date converter", () => {
   it("rejects 2023-12-06", () => {
     const testDate = "2023-12-06";
     testDeathSearcher.convertDate(testDate);
-    expect(consoleSpy).toHaveBeenCalledWith("Error - future date: 2023-12-06");
+    expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
   });
   it("rejects non-string input", () => {
     const testDate = 2011123;
     testDeathSearcher.convertDate(testDate);
     expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
   });
-  it("rejects incorrect input", () => {
+  it("rejects too short input", () => {
     const testDate = "2022-12-1";
+    testDeathSearcher.convertDate(testDate);
+    expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
+  });
+  it("rejects bad format input", () => {
+    const testDate = "12-12-2022";
     testDeathSearcher.convertDate(testDate);
     expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
   });
