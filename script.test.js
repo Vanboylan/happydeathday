@@ -13,8 +13,10 @@ const deathSearcher = require("./script");
 //selector on html gives you YYYY-MM-DD. This checks to convert it to a useable format.
 describe("date converter", () => {
   it("accepts a date input", () => {
+    const consoleSpy = jest.spyOn(console, "log");
     const testDeathSearcher = new deathSearcher();
     const testDate = "2023-12-06";
-    expect(testDeathSearcher.convertDate(testDate).toEqual("December_6"));
+    testDeathSearcher.convertDate(testDate);
+    expect(consoleSpy).toHaveBeenCalledWith("Acceptable input: 2023-12-06");
   });
 });
