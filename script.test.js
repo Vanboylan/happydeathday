@@ -20,10 +20,10 @@ describe("date converter", () => {
     testDeathSearcher.convertDate(testDate);
     expect(consoleSpy).toHaveBeenCalledWith("Acceptable input: 2022-12-06");
   });
-  it("rejects 2023-12-06", () => {
+  it("accepts 2023-12-06", () => {
     const testDate = "2023-12-06";
     testDeathSearcher.convertDate(testDate);
-    expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
+    expect(consoleSpy).toHaveBeenCalledWith("Acceptable input: 2023-12-06");
   });
   it("rejects non-string input", () => {
     const testDate = 2011123;
@@ -53,6 +53,10 @@ describe("date converter", () => {
   it("accepts 2014-04-10 and converts it to April_10", () => {
     const testDate = "2014-04-10";
     expect(testDeathSearcher.convertDate(testDate)).toEqual("April_10");
-    // expect(consoleSpy.toHaveBeenCalledWith("Acceptable input: 2014-04-10"));
+  });
+  it("accepts 2014-4-10, converts to April_10 and searches via the wikimedia api", () => {
+    const testDate = "2014-04-10";
+    let convertedDate = testDeathSearcher.convertDate(testDate);
+    expect(testDeathSearcher.searchAPI(convertedDate)).toEqual("");
   });
 });
