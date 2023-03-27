@@ -25,8 +25,13 @@ describe("date converter", () => {
     testDeathSearcher.convertDate(testDate);
     expect(consoleSpy).toHaveBeenCalledWith("Error - future date: 2023-12-06");
   });
-  it("rejects incorrect input", () => {
+  it("rejects non-string input", () => {
     const testDate = 2011123;
+    testDeathSearcher.convertDate(testDate);
+    expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
+  });
+  it("rejects incorrect input", () => {
+    const testDate = "2022-12-1";
     testDeathSearcher.convertDate(testDate);
     expect(consoleSpy).toHaveBeenCalledWith("Error - incorrect input");
   });
