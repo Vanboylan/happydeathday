@@ -2,9 +2,9 @@
   "name": "happydeathday",
   "version": "1.0.0",
   "description": "A basic 'dead person' generator. Input your birthday, out pops someone who died on that day!",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,6 @@
   "homepage": "https://github.com/Vanboylan/happydeathday#readme",
   "dependencies": {
     "jest": "^29.5.0"
-  }
+  },
+  "devDependencies": {}
 }
