@@ -1,7 +1,7 @@
 class deathSearcher {
   convertDate = (date) => {
-    if (date === "2023-12-06") {
-      console.log("Acceptable input: 2023-12-06");
+    if (date === "2022-12-06") {
+      console.log("Acceptable input: 2022-12-06");
     }
   };
 }

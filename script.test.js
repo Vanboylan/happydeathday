@@ -12,11 +12,18 @@ const deathSearcher = require("./script");
 //WikiMedia API searches using a format of 'monthName_dayNumber' and the standard date
 //selector on html gives you YYYY-MM-DD. This checks to convert it to a useable format.
 describe("date converter", () => {
-  it("accepts a date input", () => {
+  it("accepts 2022-12-06", () => {
+    const consoleSpy = jest.spyOn(console, "log");
+    const testDeathSearcher = new deathSearcher();
+    const testDate = "2022-12-06";
+    testDeathSearcher.convertDate(testDate);
+    expect(consoleSpy).toHaveBeenCalledWith("Acceptable input: 2022-12-06");
+  });
+  it("rejects 2023-12-06", () => {
     const consoleSpy = jest.spyOn(console, "log");
     const testDeathSearcher = new deathSearcher();
     const testDate = "2023-12-06";
     testDeathSearcher.convertDate(testDate);
-    expect(consoleSpy).toHaveBeenCalledWith("Acceptable input: 2023-12-06");
+    expect(consoleSpy).toHaveBeenCalledWith("Error - future date: 2023-12-06");
   });
 });
