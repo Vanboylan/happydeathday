@@ -50,4 +50,9 @@ describe("date converter", () => {
     testDeathSearcher.convertDate(testDate);
     expect(consoleSpy).toHaveBeenCalledWith("Acceptable input: 2019-01-03");
   });
+  it("accepts 2014-04-10 and converts it to April_10", () => {
+    const testDate = "2014-04-10";
+    expect(testDeathSearcher.convertDate(testDate)).toEqual("April_10");
+    expect(consoleSpy.toHaveBeenCalledWith("Acceptable input: 2014-04-10"));
+  });
 });
