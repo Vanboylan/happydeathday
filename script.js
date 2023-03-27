@@ -1,7 +1,10 @@
 class deathSearcher {
   convertDate = (date) => {
-    if (date === "2022-12-06") {
-      console.log("Acceptable input: 2022-12-06");
+    var dateInput = new Date(date + " GMT");
+    if (Date.now() >= dateInput) {
+      console.log(`Acceptable input: ${date}`);
+    } else {
+      console.log(`Error - future date: ${date}`);
     }
   };
 }
