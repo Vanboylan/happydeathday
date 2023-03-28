@@ -7,7 +7,7 @@
 //1) What if the birthday does not exist?
 //2) What if the input is not in the correct format?
 
-const deathSearcher = require("../script");
+const deathSearcher = require("../deathSearcher");
 
 //WikiMedia API searches using a format of 'monthName_dayNumber' and the standard date
 //selector on html gives you YYYY-MM-DD. This checks to convert it to a useable format.
@@ -75,14 +75,12 @@ describe("date converter", () => {
   it("performs the above task and finds Landulf I", () => {
     const testDate = "2014-04-10";
     let convertedDate = testDeathSearcher.convertDate(testDate);
-    return testDeathSearcher
-      .searchAPI(convertedDate, "wikitext")
-      .then((data) => {
-        let list = testDeathSearcher.formatData(data);
-        expect(testDeathSearcher.formatEntry(list[1])).toEqual([
-          "Landulf I of Benevento",
-          "prince of Benevento and Capua",
-        ]);
-      });
+    return testDeathSearcher.searchAPI(convertedDate).then((data) => {
+      let list = testDeathSearcher.formatData(data);
+      expect(testDeathSearcher.formatEntry(list[1])).toEqual([
+        "Landulf I of Benevento",
+        "prince of Benevento and Capua",
+      ]);
+    });
   });
 });

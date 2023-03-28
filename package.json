@@ -1,4 +1,4 @@
-{
+{"type": "module",
   "name": "happydeathday",
   "version": "1.0.0",
   "description": "A basic 'dead person' generator. Input your birthday, out pops someone who died on that day!",
@@ -22,3 +22,6 @@
   },
   "devDependencies": {}
 }
+
+
+  
