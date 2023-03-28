@@ -1,3 +1,43 @@
 .hidden {
     display: none;
 }
+
+body {
+    background-color: rgb(215, 105, 80);
+    font-family: baskerville, times;
+    color: rgb(41, 35, 67);
+    display: inline;
+    text-align: center;
+}
+
+h1 {
+   font-size: 600%;
+}
+
+.subtitle {
+    font-size: 200%;
+}
+
+button {
+    width: 100px;
+    height: 26px;
+    border-radius: 1rem;
+    background-color: rgb(165, 157, 157);
+    font-family: inherit;
+}
+
+input {
+  text-align: center;
+  font-family: inherit;
+  background-color: rgb(251, 247, 226);
+  border-radius: 0.5em;
+  padding: 2px;
+}
+
+h3 {
+    font-size: 300%;
+}
+
+.info {
+    font-size: 300%
+}
