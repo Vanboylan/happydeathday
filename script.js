@@ -4,6 +4,9 @@ const dateInput = document.querySelector(".date");
 const result = document.querySelector(".result");
 const person = document.querySelector(".person");
 const info = document.querySelector(".info");
+const express = require("express");
+const app = express();
+const port = proccess.env.PORT || 3000;
 
 const search = (date) => {
   let newSearch = new deathSearcher();
@@ -16,4 +19,12 @@ searchBtn.addEventListener("click", async function () {
   console.log(results);
   person.textContent = results[0];
   info.textContent = results[1];
+});
+
+app.get("/", (req, res) => {
+  res.render("/index");
+});
+
+app.listen(port, () => {
+  console.log(`listening on PORT${port}`);
 });
