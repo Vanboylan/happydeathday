@@ -4,7 +4,8 @@
   "description": "A basic 'dead person' generator. Input your birthday, out pops someone who died on that day!",
   "main": "script.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "start"
   },
   "repository": {
     "type": "git",
