@@ -1,4 +1,4 @@
-export class deathSearcher {
+export class DeathSearcher {
   convertDate = (date) => {
     if (this.dateCheck(date)) {
       console.log(`Acceptable input: ${date}`);
@@ -11,7 +11,6 @@ export class deathSearcher {
       return convertedDate;
     } else {
       console.log("Error - incorrect input");
-      alert("Choose a correct date");
     }
   };
 
@@ -90,3 +89,5 @@ export class deathSearcher {
     return entry;
   }
 }
+
+export default DeathSearcher;
