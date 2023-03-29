@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 const __dirname = path.resolve();
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 import homeRouter from "./routes/home.js";
 
 app.set("views", path.join(__dirname, "views"));
