@@ -22,7 +22,6 @@ export class DeathSearcher {
   async searchAPI(parameter) {
     const url = `https://en.wikipedia.org/w/api.php?action=parse&origin=*&format=json&page=${parameter}&prop=wikitext&formatversion=2`;
     const response = await fetch(url);
-    console.log(response);
     const data = await response.json();
     console.log(data);
     const parsedData = await data.parse;
