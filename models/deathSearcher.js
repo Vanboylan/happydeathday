@@ -33,12 +33,16 @@ export class DeathSearcher {
   };
 
   formatData = (data) => {
-    const splitList = data.wikitext
-      .split("==Deaths==")[1]
-      .split("<!--")[0]
-      .split("*");
-    const filteredList = splitList.filter(this.isPerson);
+    let num = 0;
+    const splitList = data.wikitext.split("==Deaths==")[1];
+    if (this.hasComment(splitList)) num = 1;
+    const listForFilter = splitList.split("<!--")[num].split("*");
+    const filteredList = listForFilter.filter(this.isPerson);
     return filteredList;
+  };
+
+  hasComment = (text) => {
+    return text.startsWith("\n<!--");
   };
 
   pickRandom = (list) => {
