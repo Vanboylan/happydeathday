@@ -36,10 +36,10 @@ input {
 
 h3 {
     font-size: 300%;
-    animation: fadeIn 1s;
+    animation: fadeIn 3s;
 }
 
 .info {
     font-size: 300%;
-    animation: fadeIn 1.5s;
+    animation: fadeIn 5s;
 }
