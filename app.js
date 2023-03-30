@@ -20,4 +20,16 @@ app.listen(port, () => {
   console.log(`listening on PORT${port}`);
 });
 
+process.on("uncaughtException", (error, origin) => {
+  console.log("exception ---->" + error);
+  console.log("origin ----->" + origin);
+  alert("something went wrong!");
+});
+
+process.on("unhandledRejection", (error, origin) => {
+  console.log("rejection ---->" + error);
+  console.log("origin ----->" + origin);
+  alert("something went wrong!");
+});
+
 export default app;
