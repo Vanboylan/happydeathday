@@ -11,6 +11,7 @@ export class DeathSearcher {
       return convertedDate;
     } else {
       console.log("Error - incorrect input");
+      return "error";
     }
   };
 
@@ -83,6 +84,10 @@ export class DeathSearcher {
 
   async run(date) {
     let convertedDate = this.convertDate(date);
+    if (convertedDate === "error") {
+      console.log("breaking run command");
+      return ["We're sorry!", "Something went wrong on our end"];
+    }
     let result = await this.searchAPI(convertedDate);
     let formattedResult = await this.formatData(result);
     let entry = await this.formatEntry(formattedResult);
