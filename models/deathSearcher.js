@@ -6,7 +6,7 @@ export class DeathSearcher {
       const searchDate = new Date();
       searchDate.setMonth(~~dateArray[1] - 1);
       let month = searchDate.toLocaleString("en-US", { month: "long" });
-      let day = dateArray[2];
+      let day = ~~dateArray[2];
       let convertedDate = `${month}_${day}`;
       return convertedDate;
     } else {
